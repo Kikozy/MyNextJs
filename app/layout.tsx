@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 import { AppContextProvider } from "./components/AppContext";
+import GlobalHeader from "./components/globalHeader/globalHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,14 @@ export default function RootLayout({
   return (
     <html lang="zh">
       <body>
-        <AppContextProvider>{children}</AppContextProvider>
+        <AppContextProvider>
+          <GlobalHeader />
+          <div className="globalContent">
+            <div className="content-core">
+              {children}
+            </div>
+          </div>
+        </AppContextProvider>
       </body>
     </html>
   );

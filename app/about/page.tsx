@@ -13,7 +13,6 @@ export default async function About() {
 	const list: Array<any> = response.data
 	return (
 		<>
-			<h1>About</h1>
 			<div className="card-list">
 				{list.map((item, index) => (
 					<Link className="card-item" href={`/detail/${item.id}`}>
