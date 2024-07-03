@@ -1,16 +1,21 @@
-a{
-  text-decoration: none;
-  color: inherit;
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
 .globalContent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .content-core {
-    width: 68%;
-    min-width: 800px;
-    
-  }
-  padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.content-core {
+		width: 68%;
+		min-width: 800px;
+	}
+	padding: 20px;
+}
+.loading-img {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
