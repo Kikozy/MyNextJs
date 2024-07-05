@@ -17,7 +17,6 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
 
   const [globalState, dispatchGlobalState] = useReducer(reducer, initState)
   const contextValue = useMemo(() => {
-    console.log('state发生变化: ', globalState)
     return { globalState, dispatchGlobalState }
   }, [globalState, dispatchGlobalState])
   return <AppContext.Provider value={contextValue}>

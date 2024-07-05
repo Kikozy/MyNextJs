@@ -8,15 +8,26 @@ const navList = [
 	{ name: "关于", path: "/article-list/1" },
 	{ name: "文章", path: "/home" },
 ]
+
 function GlobalHeader() {
 	const globalContext = useContext(AppContext)
 	const { globalState, dispatchGlobalState } = globalContext
+
+	function handleClickTpBtn() {
+		console.log("oi!!~~")
+		dispatchGlobalState({ type: "UPDATE", filed: "pageLoading", value: true })
+	}
 
 	return (
 		<div className="globalHeader">
 			<div className="nav-list">
 				{navList.map((navItem) => (
-					<Link className="nav-item" href={navItem.path} key={navItem.name}>
+					<Link
+						className="nav-item"
+						href={navItem.path}
+						key={navItem.name}
+						onClick={handleClickTpBtn}
+					>
 						{navItem.name}
 					</Link>
 				))}
