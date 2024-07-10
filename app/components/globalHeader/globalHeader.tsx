@@ -1,5 +1,5 @@
 "use client"
-import { useContext } from "react"
+import { MouseEvent, useContext } from "react"
 import { AppContext } from "../AppContext"
 import Link from "next/link"
 import "./globalHeader.scss"
@@ -13,8 +13,8 @@ function GlobalHeader() {
 	const globalContext = useContext(AppContext)
 	const { globalState, dispatchGlobalState } = globalContext
 
-	function handleClickTpBtn() {
-		console.log("oi!!~~")
+	function handleClickTpBtn(e: MouseEvent<HTMLAnchorElement>) {
+		if (e.currentTarget.baseURI == e.currentTarget.href) return
 		dispatchGlobalState({ type: "UPDATE", filed: "pageLoading", value: true })
 	}
 

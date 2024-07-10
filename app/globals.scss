@@ -19,3 +19,44 @@ a {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
+.loading-mask {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	transform: translate(-50%, -50%);
+	.loading-container {
+		width: 40px;
+		height: 40px;
+		display: flex;
+		justify-content: space-between;
+		.dot {
+			width: 10px;
+			height: 10px;
+			background-color: #3498db;
+			border-radius: 50%;
+			animation: bounce 0.8s infinite ease-in-out alternate;
+		}
+		.dot:nth-child(2) {
+			animation-delay: 0.2s;
+		}
+
+		.dot:nth-child(3) {
+			animation-delay: 0.4s;
+		}
+	}
+}
+
+@keyframes bounce {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-10px);
+	}
+}

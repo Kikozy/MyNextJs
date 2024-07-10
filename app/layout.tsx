@@ -24,14 +24,25 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="zh">
+			<head>
+				<link rel="preload" href="/loading.gif" as="image" />
+			</head>
 			<body>
+				<div className="loading-mask" hidden={false}>
+					<div className="loading-container">
+						<div className="dot"></div>
+						<div className="dot"></div>
+						<div className="dot"></div>
+					</div>
+				</div>
 				{/* <Image
-          className="loading-img"
-          src="/loading.gif"
-          height={300}
-          width={300}
-          alt=""
-        /> */}
+					className="loading-img"
+					src="/loading.gif"
+					height={300}
+					width={300}
+					alt=""
+					priority
+				/> */}
 				<AppContextProvider>
 					<GlobalHeader />
 					<div className="globalContent">
@@ -40,15 +51,20 @@ export default function RootLayout({
 						</div>
 					</div>
 				</AppContextProvider>
-				{/* <script
-          dangerouslySetInnerHTML={{
-            __html: `
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
               window.addEventListener('load',()=>{
-                document.querySelector('.loading-img')?.style('display','none')
-              })
+								setTimeout(()=>{
+									console.log('nmsl')
+									const loadingMask = document.querySelector('.loading-mask');
+									if(loadingMask)
+										loadingMask.style.display = 'none'
+								},1500)
+							})
             `,
-          }}
-        ></script> */}
+					}}
+				></script>
 			</body>
 		</html>
 	)

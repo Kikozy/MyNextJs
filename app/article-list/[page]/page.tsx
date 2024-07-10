@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { sleep, fetchEx } from "@/utils/index"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState, MouseEvent } from "react"
 import { AppContext } from "@/app/components/AppContext"
 import "./about.scss"
 import { usePathname, useSearchParams } from "next/navigation"
@@ -19,7 +19,10 @@ export default function About({ params }: { params: { page: string } }) {
 	const { globalState, dispatchGlobalState } = globalContext
 	// const pathName = usePathname()
 	// const searchParams = useSearchParams()
-	function handleClickTpBtn() {
+	function handleClickTpBtn(e: MouseEvent<HTMLAnchorElement>) {
+		if (e.currentTarget.baseURI == e.currentTarget.href) return
+		console.log(e)
+		debugger
 		dispatchGlobalState({ type: "UPDATE", filed: "pageLoading", value: true })
 	}
 	const [list, setList] = useState<any[]>([])
